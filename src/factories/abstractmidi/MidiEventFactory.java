@@ -1,4 +1,4 @@
-package abstractFactories;
+package factories.abstractmidi;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.InvalidMidiDataException;

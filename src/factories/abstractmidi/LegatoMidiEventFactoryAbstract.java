@@ -1,4 +1,4 @@
-package abstractFactories;
+package factories.abstractmidi;
 
 public class LegatoMidiEventFactoryAbstract implements MidiEventFactoryAbstract{
 

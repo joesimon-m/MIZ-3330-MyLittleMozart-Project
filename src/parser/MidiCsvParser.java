@@ -8,6 +8,14 @@ import java.util.List;
 
 public class MidiCsvParser {
 	
+	/**
+	 * parseCsv method goes through the csv file, and stores each variable inside of a 
+	 * MidiEventData object (for the whole line). A list is created for each line, and is returned
+	 * 
+	 * @param filename			string name of the location for the csv file
+	 * @return					returns the lines list of MidiEventData
+	 * @throws IOException		throws an IOException when an error is caught
+	 */
 	public static List<MidiEventData> parseCsv(String filename) throws IOException{
 		BufferedReader reader = null;
 		List<MidiEventData> lines = new ArrayList<MidiEventData>();
@@ -16,7 +24,9 @@ public class MidiCsvParser {
 			reader = new BufferedReader(new FileReader(filename));
 			String line;
 			
+			// reading through each line inside of the csv file
 			while((line = reader.readLine()) != null) {
+				// separates each value by a comma
 				String[] values = line.split(",");
 				
 				int noteOnOff;
@@ -31,6 +41,7 @@ public class MidiCsvParser {
 				} else if (values[1].equals(" Note_off_c")) {
 					noteOnOff = 0;
 				} else {
+					// throws an exception if noteOnOff is invalid (problem inside of csv file)
 					throw new IllegalArgumentException("Unrecognized noteOnOff value: " + values[1]);
 				}
 				
@@ -42,7 +53,7 @@ public class MidiCsvParser {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			// probably unnecessary, but eclipse won't throw any errors when I do it this way
+			// tries to close the reader BufferedReader, and if it fails, and error is thrown
 			try { 
 	            reader.close();
 	        } catch (IOException e) {

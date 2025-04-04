@@ -5,8 +5,8 @@ import java.util.List;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;
 
-import abstractFactories.MidiEventFactory;
-import abstractFactories.MidiEventFactoryAbstract;
+import factories.abstractmidi.MidiEventFactory;
+import factories.abstractmidi.MidiEventFactoryAbstract;
 import parser.MidiCsvParser;
 import parser.MidiEventData;
 
