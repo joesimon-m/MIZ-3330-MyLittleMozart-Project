@@ -23,11 +23,11 @@ public class MidiCsvParser {
 	 */
 	public static List<MidiEventData> parseCsv(String filename) throws IOException{
 		
-		BufferedReader reader = null;
+		
 		List<MidiEventData> lines = new ArrayList<MidiEventData>();
 		
-		try {
-			reader = new BufferedReader(new FileReader(filename));
+		
+		try (BufferedReader reader = new BufferedReader(new FileReader(filename))){
 			String line;
 			
 			// reading through each line inside of the csv file
@@ -81,15 +81,6 @@ public class MidiCsvParser {
 				
 				lines.add(midiLine);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			// tries to close the reader BufferedReader, and if it fails, and error is thrown
-			try { 
-	            reader.close();
-	        } catch (IOException e) {
-	            e.printStackTrace(); 
-	        }
 		}
 		
 		return lines;
