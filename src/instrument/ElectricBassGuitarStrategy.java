@@ -10,7 +10,8 @@ import javax.sound.midi.ShortMessage;
  */
 public class ElectricBassGuitarStrategy implements InstrumentStrategy{
 	/*
-	 * Applies the electric bass guitar instrument to the specified channel.
+	 * Applies the electric bass guitar instrument (33) to the specified channel.
+	 * PROGRAM_CHANGE used to change the instrument on the given channel.
 	 * 
 	 * @param track the MIDI track to apply the instrument change
 	 * @param channel the MIDI channel to set the instrument on 
