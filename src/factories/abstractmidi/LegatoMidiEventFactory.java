@@ -6,6 +6,8 @@ import javax.sound.midi.ShortMessage;
 
 public class LegatoMidiEventFactory implements MidiEventFactory{
 
+	
+	private static final int LEGATO_EXTENDER = 80; // adds extra duration for legato style
 	/**
 	 * Creates and returns a MidiEvent with NOTE_ON
 	 * 
@@ -36,7 +38,7 @@ public class LegatoMidiEventFactory implements MidiEventFactory{
 	public MidiEvent createNoteOff(int tick, int note, int channel) throws InvalidMidiDataException {
 		ShortMessage message = new ShortMessage();
 		message.setMessage(ShortMessage.NOTE_OFF, channel, note);
-		return new MidiEvent(message, tick+80); // creates a larger duration by 80
+		return new MidiEvent(message, tick+LEGATO_EXTENDER); // applies legato note extension
 	}
 
 }
